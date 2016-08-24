@@ -9,7 +9,7 @@ namespace JC\Acl\Interfaces;
 interface UserAcl
 {
     /**
-     * @return string
+     * @return array
      */
     public function getRole();
 

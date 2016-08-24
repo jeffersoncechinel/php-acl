@@ -2,6 +2,7 @@
 
 namespace JC\Acl\Entities;
 
+
 /**
  * Class Role
  * @package JC\Acl\Entities
@@ -11,7 +12,7 @@ class Role
     /**
      * @var string
      */
-    protected $name;
+    protected $roldeId;
     /**
      * @var array
      */
@@ -19,29 +20,29 @@ class Role
 
     /**
      * Role constructor.
-     * @param string|null $name
+     * @param string|null $roldeId
      */
-    public function __construct($name = null)
+    public function __construct($roldeId = null)
     {
-        $this->name = $name;
+        $this->roldeId = $roldeId;
         $this->permissions = [];
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getRoleId()
     {
-        return $this->name;
+        return $this->roldeId;
     }
 
     /**
-     * @param string $name
+     * @param int $roldeId
      * @return Role
      */
-    public function setName($name)
+    public function setRoleId($roldeId)
     {
-        $this->name = $name;
+        $this->roldeId = $roldeId;
         return $this;
     }
 

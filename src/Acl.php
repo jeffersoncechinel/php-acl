@@ -80,13 +80,13 @@ class Acl
     }
 
     /**
-     * @param string $role
+     * @param int $role
      * @return bool
      */
     public function hasRole($role)
     {
         foreach ($this->roles as $r) {
-            if ($r->getName() === $role) {
+            if ($r->getRoleId() === $role) {
                 return true;
             }
         }
@@ -95,14 +95,14 @@ class Acl
     }
 
     /**
-     * @param string $role
+     * @param int $role
      * @param string $permission
      * @return bool
      */
     public function hasPermission($role, $permission)
     {
         foreach ($this->roles as $r) {
-            if ($r->getName() === $role) {
+            if ($r->getRoleId() === $role) {
                 foreach ($r->getPermissions() as $p) {
                     if ($p->getName() === $permission) {
                         return true;
