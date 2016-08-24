@@ -127,11 +127,13 @@ class Acl
 
         if ($user) {
             $this->setUser($user);
-            return $this->hasPermission($this->user->getRole(), $permission);
+            $role = $this->user->getRole();
+            return $this->hasPermission($role['id_role'], $permission);
         }
 
         if ($this->user) {
-            return $this->hasPermission($this->user->getRole(), $permission);
+            $role = $this->user->getRole();
+            return $this->hasPermission($role['id_role'], $permission);
         }
 
         return false;
