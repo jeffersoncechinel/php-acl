@@ -24,6 +24,10 @@ class Acl
      * @var array
      */
     protected $resources;
+    /**
+     * @var
+     */
+    protected $admin;
 
     /**
      * Acl constructor.
@@ -55,6 +59,24 @@ class Acl
     {
         $this->user = $user;
         return $this;
+    }
+
+    /**
+     * @param $flag
+     * @return $this
+     */
+    public function setAdmin($flag)
+    {
+        $this->admin = $flag;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
     }
 
     /**
@@ -99,6 +121,10 @@ class Acl
      */
     public function can($permission, UserAcl $user = null)
     {
+        if ($this->getAdmin() == 1) {
+            return true;
+        }
+
         if ($user) {
             $this->setUser($user);
             return $this->hasPermission($this->user->getRole(), $permission);
