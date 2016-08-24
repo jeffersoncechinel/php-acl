@@ -10,7 +10,7 @@ class User implements UserAcl
 
     public function getRole()
     {
-        return 'supervisor';
+        return ['id_role' => 0, 'is_admin' => 1];
     }
 
     public function getId()
